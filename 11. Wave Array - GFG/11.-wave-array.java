@@ -64,7 +64,7 @@ class Solution {
             if(i%2==0 && a[i]<a[i+1]){
                 swap(a,i,i+1);
             }
-            if(i%2==1 && a[i]>a[i+1] ){
+            if(i%2!=0 && a[i]>a[i+1] ){
                 swap(a,i,i+1);
             }
         }
