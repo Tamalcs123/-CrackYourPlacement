@@ -59,10 +59,10 @@ class Solution
     			count++;
     	}
 
-    	if(count > n /2){
-    		return a[res];
+    	if(count <= n /2){
+    		return -1;
     	}
 
-    	return -1; 
+    	return a[res]; 
     }
 }
