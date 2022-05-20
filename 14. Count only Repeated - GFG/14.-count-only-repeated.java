@@ -43,7 +43,7 @@ class Solution
         int low=0,high=arr.length-1;
        
       int count=0;
-      count= arr.length-(arr[arr.length-1]-arr[0]);
+      count= arr.length-(arr[arr.length-1]-arr[low]);
       while(low<=high){
           int mid= (high+low)/2;
           if(arr[mid]==(arr[0]+mid)){
