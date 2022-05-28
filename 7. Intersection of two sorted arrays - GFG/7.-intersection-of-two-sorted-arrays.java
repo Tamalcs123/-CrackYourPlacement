@@ -53,6 +53,7 @@ class Solution
          ArrayList<Integer> res=new  ArrayList<Integer>();
         int i=0;
         int j=0;
+        boolean flag=false;
         while(i<n && j<m){
             if(i>0 && arr1[i]==arr1[i-1]){
                 i++;
@@ -68,9 +69,12 @@ class Solution
                 res.add(arr1[i]);
                 i++;
                 j++;
+                flag=true;
             }
         }
-        // res.add(-1);
+        if(flag==false){
+        res.add(-1);
+        }
         return res;
         
     }
