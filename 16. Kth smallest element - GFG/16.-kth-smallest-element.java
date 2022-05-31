@@ -48,7 +48,7 @@ class Solution
         while(l<=r){
             int p=partition(arr,l,r);
             if(p==k-1)
-                return arr[k-1];
+                return arr[p];
             else if(p>k-1)
                 r=p-1;
             else
