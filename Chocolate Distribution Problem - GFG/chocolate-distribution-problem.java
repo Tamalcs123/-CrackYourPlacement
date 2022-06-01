@@ -38,11 +38,12 @@ class Solution
     public long findMinDiff (ArrayList<Integer> a, int n, int m)
     {
         // your code here
-      Collections.sort(a);
-       long mindiff = Integer.MAX_VALUE;
-       for(int i = 0;i<n-m+1;i++){
-           mindiff = Math.min(a.get(i+m-1)-a.get(i),mindiff);
-       }
-       return mindiff;
+              if(m>n)
+            return -1;
+        Collections.sort(a);
+        int res=a.get(m-1)-a.get(0);
+        for(int i=0;(i+m-1)<n;i++)
+            res=Math.min(res,a.get(i+m-1)-a.get(i));
+        return res;
     }
 }
