@@ -28,8 +28,19 @@ class Solution
     public static String countSort(String arr)
     {
         // code here
-           char s[] = arr.toCharArray();
-       Arrays.sort(s);
-       return new String(s);
+         int l = arr.length();
+       int count[] = new int[26];
+       for(int i=0;i<l;i++)
+           count[(arr.charAt(i) - 'a')]++;
+       for(int j=1;j<26;j++)
+           count[j] += count[j - 1];
+       
+       char op[] = new char[l];
+       for(int k=0;k<l;k++)
+       {
+           op[count[arr.charAt(k) - 'a'] - 1] = (char)arr.charAt(k);
+           count[arr.charAt(k) - 'a']--;
+       }
+       return String.valueOf(op);   
     }
 }
