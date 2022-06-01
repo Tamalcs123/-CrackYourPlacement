@@ -41,7 +41,7 @@ class Solution
               if(m>n)
             return -1;
         Collections.sort(a);
-        int res=a.get(m-1)-a.get(0);
+        long res=a.get(m-1)-a.get(0);
         for(int i=0;(i+m-1)<n;i++)
             res=Math.min(res,a.get(i+m-1)-a.get(i));
         return res;
