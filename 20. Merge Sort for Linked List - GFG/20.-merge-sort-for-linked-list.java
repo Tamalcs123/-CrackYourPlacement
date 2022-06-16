@@ -74,72 +74,66 @@ class Solution
 {
     //Function to sort the given linked list using Merge Sort.
     
-   static Node mergeSort(Node head)
-   {
-       if(head == null || head.next == null){
-           return head;
-       }
-       Node middle = getMiddle(head);
+    static Node mergeSort(Node head)
+    {
+        // add your code here
+        if(head==null || head.next==null) {return head;}
+        
+        Node middle=getMiddle(head);
+        
+        Node left=head;
+        Node right=middle.next;
+        middle.next=null;
+        
+        left=mergeSort(left);
+        right=mergeSort(right);
+        head=merge(left,right);
+        return head;
        
-       
-       Node part1 = head;
-       Node part2 = middle.next;
-       middle.next = null;
-       part1 = mergeSort(part1);
-      
-       part2 = mergeSort(part2);
-       head = merge(part1,part2);
-       return head;
-      
-   }
-   static Node getMiddle(Node head){
-       Node slow = head;
-       Node fast = head;
-       while(fast.next!=null && fast.next.next!=null){
-           slow = slow.next;
-           fast = fast.next.next;
-       }
-       return slow;
-   }
-  static Node merge(Node h1, Node h2){
-      if(h1 == null){
-          return h2;
-      }
-      if(h2 == null){
-          return h1;
-      }
-
-
-       Node head,tail;
-       if(h1.data<=h2.data){
-           head = h1;
-           tail = h1;
-           h1 = h1.next;
-           
-       }else{
-           head = h2;
-           tail = h2;
-           h2 = h2.next;
-       }
-       while (h1!=null && h2!=null){
-           if(h1.data<= h2.data){
-               tail.next = h1;
-               h1 = h1.next;
-               tail = tail.next;
-           }else{
-               tail.next = h2;
-               h2 = h2.next;
-               tail = tail.next;
-       }
-       }
-       if(h1!=null){
-           tail.next = h1;
-       }else{
-           tail.next = h2;
-       }
-   
-
-return head;
+    }
+    
+    static Node getMiddle(Node head){
+        Node slow=head;
+        Node fast=head;
+        while(fast.next!=null && fast.next.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        return slow;
+    }
+    static Node merge(Node h1,Node h2){
+        if(h1==null){return h2;}
+        if(h2==null){return h1;}
+        Node head,tail;
+        if(h1.data<=h2.data){
+            head=h1;
+            tail=h1;
+            h1=h1.next;
+        }
+        else{
+            head=h2;
+            tail=h2;
+            h2=h2.next;
+        }
+        while(h1!=null && h2!=null){
+            if(h1.data<=h2.data){
+                tail.next=h1;
+                h1=h1.next;
+                tail=tail.next;
+            }
+            else{
+                tail.next=h2;
+                h2=h2.next;
+                tail=tail.next;
+            }
+        }
+        if(h1!=null){
+            tail.next=h1;
+        }
+        else{
+            tail.next=h2;
+        }
+        return head;
     }
 }
 
