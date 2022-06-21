@@ -35,29 +35,25 @@ class Driverclass
 class Solution
 {
     //Function to check if brackets are balanced or not.
-   public static boolean matching(char a,char b){
-        return (( a=='(' && b==')' )||( a=='[' && b==']' )||( a=='{' && b=='}' ));
+     public static boolean matching(char a,char b){
+        return ((a=='(' && b==')')|| (a=='{' && b=='}')||(a=='[' && b==']'));
     }
-    static boolean ispar(String str)
+    static boolean ispar(String x)
     {
         // add your code here
-        Deque<Character> s=new ArrayDeque<>(); 
-        
-        for (int i = 0; i < str.length(); i++)  
-        { 
-            if (str.charAt(i) == '(' || str.charAt(i) == '[' || str.charAt(i) == '{')  
-            {  
-                s.push(str.charAt(i)); 
-            } 
-            else{
-            if (s.isEmpty()==true) 
-                return false;
-            else if(matching(s.peek(),str.charAt(i))==false)
-                return false;
-            else
-                s.pop();
+        Deque<Character> s=new ArrayDeque<>();
+        for(int i=0;i<x.length();i++){
+            if(x.charAt(i)=='(' || x.charAt(i)=='{'|| x.charAt(i)=='['){
+                s.push(x.charAt(i));
             }
-        }    
-        return (s.isEmpty()==true); 
+            else{
+                if(s.isEmpty()==true){ return false;}
+                else if(matching(s.peek(),x.charAt(i))==false){return false;}
+                else{
+                    s.pop();
+                }
+            }
+        }
+        return (s.isEmpty()==true);
     }
 }
