@@ -44,7 +44,7 @@ class Solution
         // Your code here
         Stack<Integer> s=new Stack<>() ;
         int ans[]=new int[n];
-        s.add(0);
+        s.push(0);
         ans[0]=1;
         for(int i=1;i<n;i++){
             while(s.isEmpty()==false && arr[s.peek()]<=arr[i]){
