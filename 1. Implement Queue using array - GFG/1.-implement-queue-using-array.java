@@ -65,9 +65,12 @@ class MyQueue {
 	int pop()
 	{
 		// Your code here
-  		 if(rear != front)
-          return arr[++front];
-        else
+  		 if(rear != front){
+  		     front++;
+  		 
+          return arr[front];
+  		     
+  		 }
            return -1;
   	} 
 }
