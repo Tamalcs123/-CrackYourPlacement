@@ -55,8 +55,8 @@ class MyQueue {
 	void push(int x)
 	{
 	    // Your code here
-	    arr[front]=x;
-	    front++;
+	    arr[rear]=x;
+	    rear++;
 	} 
 
     //Function to pop an element from queue and return that element.
@@ -64,8 +64,8 @@ class MyQueue {
 	{
 		// Your code here
 		if(front==rear) return -1;
-		int d=arr[rear];
-		rear++;
+		int d=arr[front];
+		front++;
 		return d;
 	} 
 }
