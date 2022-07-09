@@ -41,25 +41,38 @@ class GFG
 class Solution
 {
     //Function to rotate matrix anticlockwise by 90 degrees.
-    static void rotateby90(int matrix[][], int n) 
+         	static void swap(int mat[][], int i, int j)
+	{
+			int temp = mat[i][j];
+			mat[i][j] = mat[j][i];
+			mat[j][i] = temp;
+	}
+	
+	static void swap2(int low, int high, int i, int mat[][])
+	{
+	    	int temp = mat[low][i];
+			mat[low][i] = mat[high][i];
+			mat[high][i] = temp;
+	}
+    static void rotateby90(int mat[][], int n) 
     { 
         // code here
-      int arr[][] = new int[n][n];
-        for(int j= n-1,k=0; j>=0 && k<n; j--)
-        {
-            for(int i = 0,l=0; i<n && l<n; i++)
-            {
-                arr[k][l] = matrix[i][j];
-                l++;
-            }
-            k++;
-        }
-        for(int j=0;j<n;j++)
-        {
-            for(int i =0;i<n;i++)
-            {
-                matrix[i][j] = arr[i][j];
-            }
-        }
+        	for(int i = 0; i < n; i++)
+			for(int j = i + 1; j < n; j++)
+				swap(mat, i, j);
+				
+		for(int i = 0; i < n; i++)
+		{
+		    int low = 0, high = n - 1;
+		    
+		    while(low < high)
+		    {
+		        swap2(low, high, i, mat);
+		        
+		        low++;
+		        high--;
+		    }
+		}
+            
     }
 }
