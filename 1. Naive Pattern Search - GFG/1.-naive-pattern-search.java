@@ -35,16 +35,17 @@ class Solution
     static boolean search(String pat, String txt)
     {
             // Your code here
-                  for(int i=0;i<=txt.length()-pat.length();i++){
-               int j=0;
-               for(;j<pat.length();j++){
-                   if(pat.charAt(j)!=txt.charAt(i+j))
-                   break;
-               }
-               if(j==pat.length())
-               return true;
-           }
-           return false;
+        //           for(int i=0;i<=txt.length()-pat.length();i++){
+        //       int j=0;
+        //       for(;j<pat.length();j++){
+        //           if(pat.charAt(j)!=txt.charAt(i+j))
+        //           break;
+        //       }
+        //       if(j==pat.length())
+        //       return true;
+        //   }
+        //   return false;
+     return    txt.contains(pat);
    
     }
     
